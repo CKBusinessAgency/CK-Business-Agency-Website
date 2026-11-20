@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CK Business Agency — Strategy. Growth. Execution. Technology.</title>
+<meta name="description" content="CK Business Agency helps organizations turn business goals into actionable strategies, growth opportunities, campaigns, projects, and digital solutions." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  /* CK brand palette — from CK Brand Guidelines */
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          teal: "#2197BD",      // Cyber Teal
+          turq: "#4BE1DF",      // CK Turquoise
+          shell: "#E8E6D8",     // Warm Shell
+          hyper: "#2A6EF2",     // Hyper Blue
+          sky: "#7EBDFF",       // Clear Sky
+          ink: "#222222",       // logo wordmark charcoal
+          deep: "#10242F",      // dark sections (deep shade of Cyber Teal)
+          line: "#E3E1D6",
+          muted: "#5C6670",
+        },
+        fontFamily: { sans: ["Lato", "ui-sans-serif", "system-ui", "sans-serif"] },
+      },
+    },
+  };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: Lato, ui-sans-serif, system-ui, sans-serif; color: #222222; background: #FCFCFA; -webkit-font-smoothing: antialiased; }
+  .bg-grad { background-image: linear-gradient(90deg, #2A6EF2 0%, #4BE1DF 100%); }
+  .bg-grad-diag { background-image: linear-gradient(120deg, #2A6EF2 0%, #2197BD 45%, #4BE1DF 100%); }
+  .text-grad { background-image: linear-gradient(90deg, #2A6EF2, #4BE1DF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .text-grad-light { background-image: linear-gradient(90deg, #7EBDFF, #4BE1DF); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .glow { box-shadow: 0 14px 34px -12px rgba(42, 110, 242, 0.55); }
+  .glow-soft { box-shadow: 0 18px 44px -24px rgba(33, 151, 189, 0.45); }
+  .light-hero { background: linear-gradient(180deg, rgba(126,189,255,0.10) 0%, rgba(232,230,216,0.25) 100%); }
+  .alt { background: rgba(232, 230, 216, 0.38); }
+  .view { display: none; }
+  .view.active { display: block; animation: fade .35s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .nav-pill.active { background: rgba(75, 225, 223, 0.22); color: #222; }
+  .modal { display: none; }
+  .modal.open { display: flex; }
+  .dropdown { display: none; }
+  .dd:hover .dropdown, .dd:focus-within .dropdown { display: block; }
+  .card { background: #fff; border: 1px solid #E3E1D6; border-radius: 1.5rem; }
+  input, textarea, select { font: inherit; }
+  :focus-visible { outline: 2px solid #2A6EF2; outline-offset: 3px; }
+  .eyebrow { font-size: .78rem; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: #2A6EF2; }
+</style>
+<script async src="https://tally.so/widgets/embed.js"></script>
+</head>
+<body>
+
+<!-- ============ ICONS (lucide) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-sparkles" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3Z"/></symbol>
+  <symbol id="i-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></symbol>
+  <symbol id="i-megaphone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
+  <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol>
+  <symbol id="i-cpu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+  <symbol id="i-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></symbol>
+  <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></symbol>
+  <symbol id="i-workflow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/></symbol>
+  <symbol id="i-msg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+  <symbol id="i-headset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-smile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></symbol>
+  <symbol id="i-help" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+  <symbol id="i-userc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></symbol>
+  <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/></symbol>
+  <symbol id="i-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></symbol>
+  <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+</defs></svg>
+
+<!-- ============ HEADER ============ -->
+<header class="sticky top-0 z-40 border-b border-line bg-white/90 backdrop-blur-md">
+  <div class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <a href="#home" aria-label="CK Business Agency home" class="logo flex flex-col leading-none">
+      <span class="text-[22px] font-black tracking-tight text-teal" style="letter-spacing:-.04em">CK</span>
+      <span class="-mt-0.5 text-[8.5px] font-black tracking-tight text-ink">BUSINESS AGENCY</span>
+    </a>
+    <nav class="hidden items-center gap-2 text-[15px] text-ink/80 md:flex" aria-label="Primary">
+      <a href="#home" class="nav-pill rounded-full px-4 py-2 transition hover:text-ink" data-nav="home">Home</a>
+      <div class="dd relative">
+        <a href="#services" class="nav-pill inline-flex items-center gap-1 rounded-full px-4 py-2 transition hover:text-ink" data-nav="services solutions">Services <svg class="h-3.5 w-3.5"><use href="#i-chev"/></svg></a>
+        <div class="dropdown absolute left-0 top-full w-64 pt-2">
+          <div class="card p-2 glow-soft">
+            <a href="#services" class="block rounded-xl px-4 py-3 hover:bg-shell/50"><span class="block font-bold text-ink">Services</span><span class="text-xs text-muted">Strategy, marketing, events &amp; tech</span></a>
+            <a href="#solutions" class="block rounded-xl px-4 py-3 hover:bg-shell/50"><span class="block font-bold text-ink">Solutions · JOURNEY™ by CK</span><span class="text-xs text-muted">AI agent &amp; account-based growth</span></a>
+          </div>
+        </div>
+      </div>
+      <a href="#about" class="nav-pill rounded-full px-4 py-2 transition hover:text-ink" data-nav="about">About</a>
+      <a href="#contact" class="nav-pill rounded-full px-4 py-2 transition hover:text-ink" data-nav="contact">Contact</a>
+      <button type="button" data-open-intake data-tally-open="wzNBZa" data-tally-layout="modal" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="ml-3 rounded-full bg-grad px-5 py-2.5 text-sm font-black uppercase tracking-wider text-white glow transition hover:-translate-y-0.5">Let's Talk</button>
+    </nav>
+    <button type="button" id="menuBtn" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line md:hidden" aria-label="Open menu" aria-expanded="false"><svg class="h-5 w-5"><use href="#i-menu"/></svg></button>
+  </div>
+  <div id="mobileNav" class="hidden border-t border-line bg-white md:hidden">
+    <nav class="flex flex-col px-4 py-3 text-base" aria-label="Mobile">
+      <a href="#home" class="py-2">Home</a>
+      <a href="#services" class="py-2">Services</a>
+      <a href="#solutions" class="py-2 pl-4 text-muted">Solutions · JOURNEY™ by CK</a>
+      <a href="#about" class="py-2">About</a>
+      <a href="#contact" class="py-2">Contact</a>
+      <button type="button" data-open-intake data-tally-open="wzNBZa" data-tally-layout="modal" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="mt-3 rounded-full bg-grad px-5 py-3 text-sm font-black uppercase tracking-wider text-white">Let's Talk</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ================================================================ HOME -->
+<div class="view" id="view-home">
+  <section class="relative isolate overflow-hidden bg-deep">
+    <div class="absolute inset-0 -z-10" style="background: radial-gradient(60% 70% at 85% 10%, rgba(42,110,242,.55), transparent 60%), radial-gradient(50% 60% at 10% 100%, rgba(33,151,189,.45), transparent 60%), linear-gradient(135deg, #10242F 0%, #133a55 50%, #1d4fa8 100%);"></div>
+    <div aria-hidden class="pointer-events-none absolute -top-32 right-0 -z-10 h-[26rem] w-[26rem] rounded-full bg-hyper opacity-30 blur-3xl"></div>
+    <div aria-hidden class="pointer-events-none absolute -bottom-40 -left-20 -z-10 h-[24rem] w-[24rem] rounded-full bg-teal opacity-30 blur-3xl"></div>
+    <div class="mx-auto max-w-7xl px-4 py-28 text-center sm:px-6 sm:py-32 lg:px-8 lg:py-36">
+      <div class="mx-auto max-w-4xl">
+        <span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white backdrop-blur">
+          <svg class="h-3.5 w-3.5"><use href="#i-sparkles"/></svg> Strategy · Growth · Execution · Technology
+        </span>
+        <h1 class="mt-8 text-5xl font-black leading-[1.04] tracking-tight text-white sm:text-6xl lg:text-7xl">
+          Where <span class="text-grad-light">strategy</span> meets execution.
+        </h1>
+        <p class="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-white/80">
+          CK Business Agency helps organizations turn business goals into actionable strategies, growth opportunities,
+          campaigns, projects, and digital solutions. We provide integrated support designed around where your
+          organization is today and where you want to go.
+        </p>
+        <div class="mt-10 flex flex-wrap justify-center gap-4">
+          <button type="button" data-open-intake data-tally-open="wzNBZa" data-tally-layout="modal" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="inline-flex items-center gap-2 rounded-full bg-grad px-7 py-4 text-sm font-black uppercase tracking-wider text-white glow transition hover:-translate-y-0.5">Start a project <svg class="h-4 w-4"><use href="#i-arrow"/></svg></button>
+          <a href="#services" class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/5 px-7 py-4 text-sm font-black uppercase tracking-wider text-white backdrop-blur transition hover:bg-white/15">Explore services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-b border-line">
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:gap-16 lg:px-8">
+      <div class="lg:col-span-5">
+        <p class="eyebrow">Welcome</p>
+        <h2 class="mt-3 text-3xl font-bold leading-tight sm:text-4xl">Strategy that moves business forward.</h2>
+      </div>
+      <div class="text-lg leading-relaxed text-muted lg:col-span-7">
+        <p>At CK Business Agency, we help organizations turn ideas, challenges, and opportunities into strategic, actionable solutions. We bring together business strategy, marketing, project execution, and digital solutions to help organizations move from planning to measurable progress.</p>
+        <p class="mt-5">We take a practical, insight-driven approach—understanding your goals, audience, market, and operational needs to develop solutions that are both strategic and built for execution.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <div class="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
+        <div><p class="eyebrow">How we help</p><h2 class="mt-3 text-3xl font-bold sm:text-4xl">Four ways we support your business</h2></div>
+        <a href="#services" class="inline-flex items-center gap-2 text-sm font-bold hover:text-hyper">See all solutions <svg class="h-4 w-4"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="mt-12 grid gap-5 lg:grid-cols-2" id="homePillars"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <p class="eyebrow">Our Approach</p>
+      <h2 class="mt-3 text-3xl font-bold sm:text-4xl">A process designed around your goals</h2>
+      <div class="mt-12 grid gap-5 md:grid-cols-3" data-approach="bold"></div>
+    </div>
+  </section>
+
+  <div data-logos></div>
+
+  <section class="relative isolate overflow-hidden bg-grad-diag text-white">
+    <div aria-hidden class="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full bg-white/10 blur-3xl"></div>
+    <div class="mx-auto max-w-7xl px-4 py-24 text-center sm:px-6 lg:px-8">
+      <h2 class="mx-auto max-w-3xl text-3xl font-black leading-tight sm:text-4xl lg:text-5xl">Ready to grow with a partner who thinks in both strategy and story?</h2>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="mailto:info@ckbusinessagency.com" class="inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-black uppercase tracking-wider text-ink transition hover:-translate-y-0.5"><svg class="h-4 w-4"><use href="#i-mail"/></svg> Contact CK</a>
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-full border border-white/50 px-7 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/10">Contact us <svg class="h-4 w-4"><use href="#i-arrow"/></svg></a>
+      </div>
+      <p class="mt-5 text-sm text-white/80">info@ckbusinessagency.com</p>
+    </div>
+  </section>
+</div>
+
+<!-- ================================================================ SERVICES -->
+<div class="view" id="view-services">
+  <section class="light-hero border-b border-line">
+    <div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <p class="eyebrow">Strategy. Growth. Execution. Technology.</p>
+      <h1 class="mt-5 max-w-3xl text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">Integrated solutions, built around your business goals.</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">CK Business Agency helps organizations turn business goals into actionable strategies, growth opportunities, campaigns, projects, and digital solutions. We provide integrated support designed around where your organization is today and where you want to go.</p>
+    </div>
+  </section>
+  <section>
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <div class="grid gap-5 lg:grid-cols-2" id="servicePillars"></div>
+      <p class="mx-auto mt-12 max-w-2xl text-center text-muted">Each area brings specialized capabilities that can be combined into one solution — so you get the right mix for your goals, not a list of disconnected services.</p>
+    </div>
+  </section>
+  <section class="alt border-y border-line">
+    <div class="mx-auto max-w-3xl px-4 py-20 text-center sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold sm:text-4xl">Not Sure What You Need?</h2>
+      <p class="mt-4 text-lg leading-relaxed text-muted">You don't have to know exactly which service you need. Tell us what you're trying to accomplish, and we'll help identify the right approach.</p>
+      <a href="#contact" class="mt-8 inline-flex items-center gap-2 rounded-full bg-grad px-7 py-4 text-sm font-black uppercase tracking-wider text-white glow transition hover:-translate-y-0.5">Start a conversation <svg class="h-4 w-4"><use href="#i-arrow"/></svg></a>
+    </div>
+  </section>
+  <div data-logos></div>
+  <section class="bg-deep text-white">
+    <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 py-16 sm:px-6 md:flex-row md:items-center lg:px-8">
+      <h2 class="max-w-xl text-3xl font-bold leading-tight sm:text-4xl">From strategy to growth to execution — supported by technology.</h2>
+      <div class="flex flex-wrap gap-4">
+        <button type="button" data-open-intake data-tally-open="wzNBZa" data-tally-layout="modal" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="inline-flex items-center gap-2 rounded-full bg-grad px-7 py-4 text-sm font-black uppercase tracking-wider text-white glow">Start a project <svg class="h-4 w-4"><use href="#i-arrow"/></svg></button>
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-full border border-white/30 px-7 py-4 text-sm font-black uppercase tracking-wider text-white transition hover:bg-white/10">Get in touch <svg class="h-4 w-4"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================================================================ SOLUTIONS -->
+<div class="view" id="view-solutions">
+  <section class="light-hero border-b border-line">
+    <div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <p class="eyebrow">Solutions · JOURNEY™ by CK</p>
+      <h1 class="mt-5 max-w-3xl text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">Smart solutions built for growth.</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">JOURNEY™ by CK is CK's SaaS division. Explore our growing suite of products — from AI agents that capture leads and deflect support, to account-based tools that align sales and marketing around your highest-value opportunities.</p>
+      <div class="mt-9 flex flex-wrap gap-4">
+        <button type="button" data-open-intake data-tally-open="wzNBZa" data-tally-layout="modal" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="inline-flex items-center gap-2 rounded-full bg-grad px-7 py-4 text-sm font-black uppercase tracking-wider text-white glow">Start a project <svg class="h-4 w-4"><use href="#i-arrow"/></svg></button>
+        <a href="#contact" data-subject="Demo request — JOURNEY™ AI Agent + Dashboard" class="inline-flex items-center gap-2 rounded-full border border-line bg-white px-7 py-4 text-sm font-black uppercase tracking-wider text-ink hover:border-hyper">Request a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section>
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+      <div class="text-center"><p class="eyebrow">Our products</p><h2 class="mx-auto mt-3 max-w-xl text-3xl font-bold sm:text-4xl">Two solutions. One coordinated growth platform.</h2></div>
+      <div class="mt-12 grid gap-6 md:grid-cols-2">
+        <div class="card flex flex-col p-8">
+          <div class="flex items-center gap-3"><span class="flex h-11 w-11 items-center justify-center rounded-xl bg-grad text-white glow"><svg class="h-5 w-5"><use href="#i-bot"/></svg></span><span class="rounded-full border border-line px-3 py-1 text-[11px] font-black uppercase tracking-wider">Available now</span></div>
+          <h3 class="mt-6 text-2xl font-black">AI Agent + Dashboard</h3>
+          <p class="mt-3 leading-relaxed text-muted">A production-ready agent that answers questions, qualifies leads, handles repetitive tickets, and routes the right conversations to your team — with a real-time dashboard that proves ROI.</p>
+          <ul class="mt-5 flex-1 space-y-2 text-sm" data-checks="24/7 automation &amp; live handoff|Omnichannel deployment|Lead capture &amp; sentiment analytics"></ul>
+          <a href="#contact" data-subject="Demo request — JOURNEY™ AI Agent + Dashboard" class="mt-8 inline-flex items-center justify-center gap-2 rounded-full border border-line px-6 py-3.5 text-sm font-black uppercase tracking-wider hover:border-hyper">Request a demo <svg class="h-4 w-4"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="card relative flex flex-col p-8">
+          <span class="absolute right-5 top-5 rounded-full bg-grad px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white">Coming soon</span>
+          <div class="flex items-center gap-3"><span class="flex h-11 w-11 items-center justify-center rounded-xl bg-grad text-white glow"><svg class="h-5 w-5"><use href="#i-building"/></svg></span><span class="rounded-full border border-line px-3 py-1 text-[11px] font-black uppercase tracking-wider">Beta waitlist</span></div>
+          <h3 class="mt-6 text-2xl font-black">Account-Based Growth</h3>
+          <p class="mt-3 leading-relaxed text-muted">Identify priority accounts, personalize engagement, and align sales and marketing campaigns to drive more coordinated growth — all from one account-centric workspace.</p>
+          <ul class="mt-5 flex-1 space-y-2 text-sm" data-checks="Priority account identification|Personalized outreach at scale|Sales + marketing alignment"></ul>
+          <a href="#contact" data-subject="Waitlist — JOURNEY™ Account-Based Growth" class="mt-8 inline-flex items-center justify-center gap-2 rounded-full bg-grad px-6 py-3.5 text-sm font-black uppercase tracking-wider text-white glow">Join the waitlist <svg class="h-4 w-4"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution 01 -->
+  <section class="alt border-y border-line">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+      <div class="text-center"><p class="eyebrow">Solution 01 · AI Agent</p><h2 class="mx-auto mt-3 max-w-2xl text-3xl font-bold sm:text-4xl">Everything you need to launch a smart conversational layer</h2></div>
+      <div class="mt-12 grid gap-5 lg:grid-cols-3">
+        <div class="card p-7 lg:col-span-2 lg:row-span-2">
+          <div class="flex items-center gap-3"><span class="flex h-10 w-10 items-center justify-center rounded-xl bg-grad text-white"><svg class="h-5 w-5"><use href="#i-bot"/></svg></span><h3 class="text-xl font-black">24/7 AI Automation</h3></div>
+          <p class="mt-3 max-w-md text-muted">Always-on conversations that answer questions, qualify leads, and handle repetitive tickets without waking your team.</p>
+          <div class="mt-7 grid gap-5 sm:grid-cols-3 sm:items-end">
+            <div class="space-y-3 rounded-2xl border border-line bg-shell/30 p-4 text-sm sm:col-span-2">
+              <div class="w-fit max-w-[85%] rounded-2xl rounded-bl-sm bg-white px-4 py-2.5 shadow-sm">Hi! What are your business hours?</div>
+              <div class="ml-auto w-fit max-w-[85%] rounded-2xl rounded-br-sm bg-grad px-4 py-2.5 text-white">We're open 24/7 online. Want me to book a quick intro call?</div>
+              <div class="w-fit max-w-[85%] rounded-2xl rounded-bl-sm bg-white px-4 py-2.5 shadow-sm">Yes please — tomorrow afternoon.</div>
+            </div>
+            <div class="rounded-2xl border border-line bg-white p-5 text-center">
+              <div class="text-4xl font-black text-grad">40%</div>
+              <div class="mt-1 text-[10px] font-bold uppercase tracking-wider text-muted">Reduction in ticket volume</div>
+            </div>
+          </div>
+        </div>
+        <div class="card p-7">
+          <div class="flex items-center gap-3"><span class="flex h-10 w-10 items-center justify-center rounded-xl bg-grad text-white"><svg class="h-5 w-5"><use href="#i-workflow"/></svg></span><h3 class="text-lg font-black">Drag-and-Drop Builder</h3></div>
+          <p class="mt-3 text-sm text-muted">Edit conversations visually — no code required.</p>
+          <div class="mt-5 space-y-2 text-xs font-bold">
+            <div class="flex items-center gap-2 rounded-full bg-sky/20 px-4 py-2"><svg class="h-3.5 w-3.5 text-hyper"><use href="#i-zap"/></svg> Trigger: New visitor</div>
+            <div class="flex items-center gap-2 rounded-full bg-sky/20 px-4 py-2"><svg class="h-3.5 w-3.5 text-hyper"><use href="#i-msg"/></svg> Ask: How can I help?</div>
+            <div class="flex items-center gap-2 rounded-full bg-sky/20 px-4 py-2"><svg class="h-3.5 w-3.5 text-hyper"><use href="#i-mail"/></svg> Action: Capture email</div>
+          </div>
+        </div>
+        <div class="card p-7">
+          <div class="flex items-center gap-3"><span class="flex h-10 w-10 items-center justify-center rounded-xl bg-grad text-white"><svg class="h-5 w-5"><use href="#i-msg"/></svg></span><h3 class="text-lg font-black">Omnichannel Support</h3></div>
+          <p class="mt-3 text-sm text-muted">Deploy the same agent wherever your customers already are.</p>
+          <div class="mt-5 flex flex-wrap gap-2 text-xs font-bold">
+            <span class="rounded-full border border-line px-3 py-1.5">WhatsApp</span><span class="rounded-full border border-line px-3 py-1.5">Messenger</span><span class="rounded-full border border-line px-3 py-1.5">Shopify</span><span class="rounded-full border border-line px-3 py-1.5">Web</span><span class="rounded-full border border-line px-3 py-1.5">Instagram</span><span class="rounded-full border border-line px-3 py-1.5">SMS</span>
+          </div>
+        </div>
+        <div class="card grid gap-6 p-7 lg:col-span-3 lg:grid-cols-2 lg:items-center">
+          <div>
+            <div class="flex items-center gap-3"><span class="flex h-10 w-10 items-center justify-center rounded-xl bg-grad text-white"><svg class="h-5 w-5"><use href="#i-headset"/></svg></span><h3 class="text-xl font-black">Live Agent Handoff</h3></div>
+            <p class="mt-3 max-w-md text-muted">When a conversation needs a human, JOURNEY™ by CK routes the full transcript and context straight into Slack, your CRM, or a shared inbox — no copy-paste.</p>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div class="rounded-2xl border border-line bg-shell/30 p-4 text-sm">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-muted">Agent</p>
+              <div class="mt-3 rounded-xl bg-white px-3 py-2 shadow-sm">I'll connect you now…</div>
+              <div class="mt-2 ml-auto w-fit rounded-xl bg-grad px-3 py-2 text-xs font-bold text-white">Handing off ✓</div>
+            </div>
+            <div class="rounded-2xl bg-deep p-4 text-sm text-white">
+              <p class="text-[10px] font-bold uppercase tracking-wider text-white/60">Team dashboard</p>
+              <div class="mt-3 rounded-xl bg-white/10 px-3 py-2">New chat · priority: high</div>
+              <div class="mt-2 rounded-xl bg-white/10 px-3 py-2">Context + transcript attached</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insights -->
+  <section>
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+      <div class="text-center"><p class="eyebrow">Insights dashboard</p><h2 class="mt-3 text-3xl font-bold sm:text-4xl">The metrics that prove ROI</h2><p class="mx-auto mt-4 max-w-2xl text-muted">Every JOURNEY™ by CK deployment ships with a clean, real-time dashboard built for the numbers that actually move the business forward.</p></div>
+      <div class="mt-12 grid gap-5 md:grid-cols-2" data-features="insights"></div>
+    </div>
+  </section>
+
+  <!-- Tiers -->
+  <section class="alt border-y border-line">
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+      <div class="text-center"><p class="eyebrow">Agent tiers</p><h2 class="mt-3 text-3xl font-bold sm:text-4xl">A plan for every stage of growth</h2></div>
+      <div class="mt-12 grid gap-6 lg:grid-cols-3 lg:items-stretch" id="tiers"></div>
+    </div>
+  </section>
+
+  <!-- Solution 02 -->
+  <section>
+    <div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+      <div class="text-center">
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-grad px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white"><svg class="h-3 w-3"><use href="#i-rocket"/></svg> Coming soon</span>
+        <p class="eyebrow mt-4">Solution 02 · Account-Based Growth</p>
+        <h2 class="mx-auto mt-3 max-w-2xl text-3xl font-bold sm:text-4xl">Turn priority accounts into coordinated revenue</h2>
+        <p class="mx-auto mt-4 max-w-2xl text-muted">A new JOURNEY™ by CK product designed for B2B teams ready to move beyond lead-volume marketing. Identify the accounts that matter, align sales and marketing around a shared plan, and deliver personalized engagement at every stage.</p>
+      </div>
+      <div class="mt-12 grid gap-5 md:grid-cols-2" data-features="abg"></div>
+      <div class="card mt-10 p-10 text-center">
+        <h3 class="text-2xl font-black sm:text-3xl">Be the first to know</h3>
+        <p class="mx-auto mt-3 max-w-xl text-muted">Join the waitlist for early access, beta pricing, and a guided onboarding when Account-Based Growth launches.</p>
+        <a href="#contact" data-subject="Waitlist — JOURNEY™ Account-Based Growth" class="mt-7 inline-flex items-center gap-2 rounded-full bg-grad px-7 py-4 text-sm font-black uppercase tracking-wider text-white glow">Join the waitlist <svg class="h-4 w-4"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-deep text-white">
+    <div class="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 py-16 sm:px-6 md:flex-row md:items-center lg:px-8">
+      <div><h2 class="text-3xl font-bold sm:text-4xl">Ready to grow with JOURNEY™ by CK?</h2><p class="mt-2 text-white/70">Request a demo of the AI agent or join the waitlist for Account-Based Growth.</p></div>
+      <div class="flex flex-wrap gap-4">
+        <a href="#contact" data-subject="Demo request — JOURNEY™ AI Agent + Dashboard" class="inline-flex items-center gap-2 rounded-full bg-grad px-7 py-4 text-sm font-black uppercase tracking-wider text-white glow">Request a demo <svg class="h-4 w-4"><use href="#i-arrow"/></svg></a>
+        <a href="#contact" data-subject="Waitlist — JOURNEY™ Account-Based Growth" class="inline-flex items-center gap-2 rounded-full border border-white/30 px-7 py-4 text-sm font-black uppercase tracking-wider text-white hover:bg-white/10">Join the waitlist</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================================================================ ABOUT -->
+<div class="view" id="view-about">
+  <section class="light-hero border-b border-line">
+    <div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <p class="eyebrow">About CK</p>
+      <h1 class="mt-5 max-w-3xl text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">Creativity meets strategy to unlock your business's full potential.</h1>
+    </div>
+  </section>
+  <section>
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:px-8">
+      <h2 class="text-3xl font-bold leading-tight sm:text-4xl">Welcome to CK Business Agency</h2>
+      <div class="text-lg leading-relaxed text-muted">
+        <p>At CK Business Agency, we combine strategic thinking, creative problem-solving, and practical execution to help businesses move forward. We develop tailored solutions that connect your business goals to the strategies, systems, and initiatives needed to achieve them.</p>
+        <p class="mt-5">From strategy to digital solutions, we help turn ideas into purposeful action and create the momentum needed for sustainable growth.</p>
+      </div>
+    </div>
+  </section>
+  <section class="alt">
+    <div class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <p class="eyebrow">Our approach</p>
+      <h2 class="mt-3 text-3xl font-bold sm:text-4xl">How we work with you</h2>
+      <div class="mt-12 grid gap-5 md:grid-cols-3" data-approach="light"></div>
+    </div>
+  </section>
+  <section>
+    <div class="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-8">
+      <div>
+        <p class="eyebrow">Why CK?</p>
+        <h2 class="mt-3 text-3xl font-bold leading-tight sm:text-4xl">Tailored approaches that align with your brand.</h2>
+        <p class="mt-5 text-lg leading-relaxed text-muted">CK Business Agency utilizes best practices to propel your business to new heights. Recognizing that one size does not fit all, we believe in tailored approaches that align with your brand.</p>
+        <a href="#contact" class="mt-8 inline-flex items-center gap-2 rounded-full bg-grad px-7 py-4 text-sm font-black uppercase tracking-wider text-white glow transition hover:-translate-y-0.5">Start a conversation <svg class="h-4 w-4"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="space-y-4" id="whyList"></ul>
+    </div>
+  </section>
+</div>
+
+<!-- ================================================================ CONTACT -->
+<div class="view" id="view-contact">
+  <section class="light-hero border-b border-line">
+    <div class="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+      <p class="eyebrow">Contact</p>
+      <h1 class="mt-5 max-w-3xl text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">Let's build something worth talking about.</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-muted">Tell us about your brand, your goals, and where you'd like to be. We'll bring the strategy, the creative, and the plan to get you there.</p>
+    </div>
+  </section>
+  <section>
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-20 sm:px-6 lg:grid-cols-12 lg:px-8">
+      <form id="contactForm" class="lg:col-span-7" action="https://formsubmit.co/info@ckbusinessagency.com" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New Lead - CK Business Agency">
+        <input type="hidden" name="_template" value="table">
+        <h2 class="text-2xl font-bold">Send us a message</h2>
+        <p class="mt-2 text-muted">Fill out the form below and we'll get back to you within one business day.</p>
+        <div class="mt-8 grid gap-5 sm:grid-cols-2">
+          <label class="block text-sm font-bold">Name<input name="name" placeholder="Your name" class="mt-2 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal outline-none focus:border-hyper" /></label>
+          <label class="block text-sm font-bold">Email<input name="email" type="email" placeholder="you@company.com" class="mt-2 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal outline-none focus:border-hyper" /></label>
+          <label class="block text-sm font-bold sm:col-span-2">Subject<input name="subject" id="subjectInput" placeholder="What is this about?" class="mt-2 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal outline-none focus:border-hyper" /></label>
+          <label class="block text-sm font-bold sm:col-span-2">Message<textarea name="message" rows="5" placeholder="Tell us about your project, goals, and timeline..." class="mt-2 w-full rounded-xl border border-line bg-white px-4 py-3 font-normal outline-none focus:border-hyper"></textarea></label>
+        </div>
+        <p id="formError" class="mt-4 hidden text-sm font-bold text-red-600">Please add your name, a valid email, and a message.</p>
+        <button type="submit" class="mt-6 inline-flex items-center gap-2 rounded-full bg-grad px-6 py-3 text-sm font-bold text-white glow transition hover:-translate-y-0.5"><svg class="h-4 w-4"><use href="#i-send"/></svg> Send message</button>
+        <div id="formResult" class="mt-6 hidden rounded-2xl border border-line bg-shell/40 p-5 text-sm leading-relaxed">
+          <p class="font-bold">Almost there — your message is drafted.</p>
+          <p class="mt-1 text-muted">Open it in your email app to send it. If nothing opens, copy it and email <strong>info@ckbusinessagency.com</strong>.</p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a id="mailtoLink" href="#" class="inline-flex items-center gap-2 rounded-full bg-deep px-5 py-2.5 text-xs font-black uppercase tracking-wider text-white"><svg class="h-4 w-4"><use href="#i-mail"/></svg> Open in email</a>
+            <button type="button" id="copyMsg" class="rounded-full border border-line bg-white px-5 py-2.5 text-xs font-black uppercase tracking-wider">Copy message</button>
+          </div>
+        </div>
+      </form>
+      <div class="space-y-6 lg:col-span-5">
+        <div class="card p-8">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky/20 text-hyper"><svg class="h-5 w-5"><use href="#i-mail"/></svg></span>
+          <h3 class="mt-6 text-xl font-bold">Email us</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">Drop us a line about your project and we'll respond within one business day.</p>
+          <a href="mailto:info@ckbusinessagency.com" class="mt-5 inline-flex items-center gap-2 text-sm font-bold hover:text-hyper">Contact CK <svg class="h-4 w-4"><use href="#i-arrow"/></svg></a>
+          <p class="mt-1 text-xs text-muted">info@ckbusinessagency.com</p>
+        </div>
+        <div class="card p-8">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky/20 text-hyper"><svg class="h-5 w-5"><use href="#i-linkedin"/></svg></span>
+          <h3 class="mt-6 text-xl font-bold">Connect on LinkedIn</h3>
+          <p class="mt-2 text-sm leading-relaxed text-muted">Follow our work, meet the team, and message us directly through LinkedIn.</p>
+          <a href="https://www.linkedin.com/company/ckbusinessagency/" target="_blank" rel="noopener" class="mt-5 inline-flex items-center gap-2 text-sm font-bold hover:text-hyper">@ckbusinessagency <svg class="h-4 w-4"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-deep text-white">
+  <div class="mx-auto grid max-w-7xl gap-12 px-4 py-16 sm:px-6 md:grid-cols-3 lg:px-8">
+    <div>
+      <a href="#home" class="flex flex-col leading-none" aria-label="CK Business Agency home">
+        <span class="text-[22px] font-black text-turq" style="letter-spacing:-.04em">CK</span>
+        <span class="-mt-0.5 text-[8.5px] font-black text-white">BUSINESS AGENCY</span>
+      </a>
+      <p class="mt-6 max-w-xs text-sm leading-relaxed text-white/65">Creative meets strategy. We craft initiatives that propel your business to new heights.</p>
+    </div>
+    <div>
+      <p class="text-sm font-bold uppercase tracking-wider">Explore</p>
+      <ul class="mt-4 space-y-2.5 text-sm text-white/70">
+        <li><a href="#home" class="hover:text-white">Home</a></li>
+        <li><a href="#services" class="hover:text-white">Services</a></li>
+        <li><a href="#solutions" class="hover:text-white">Solutions</a></li>
+        <li><a href="#about" class="hover:text-white">About</a></li>
+        <li><a href="#contact" class="hover:text-white">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="text-sm font-bold uppercase tracking-wider">Connect</p>
+      <ul class="mt-4 space-y-3 text-sm text-white/70">
+        <li><a href="mailto:info@ckbusinessagency.com" class="inline-flex items-center gap-2 hover:text-white"><svg class="h-4 w-4"><use href="#i-mail"/></svg> Contact CK</a></li>
+        <li><a href="https://www.linkedin.com/company/ckbusinessagency/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 hover:text-white"><svg class="h-4 w-4"><use href="#i-linkedin"/></svg> LinkedIn</a></li>
+        <li><button type="button" data-open-intake data-tally-open="wzNBZa" data-tally-layout="modal" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="inline-flex items-center gap-2 hover:text-white"><svg class="h-4 w-4"><use href="#i-arrow"/></svg> Start a project</button></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-6 text-center text-xs text-white/50">© <span id="yr"></span> CK Business Agency. All rights reserved.</div>
+</footer>
+
+<!-- ============ CHAT WIDGET ============ -->
+<div class="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3">
+  <div id="chatPanel" class="hidden w-80 overflow-hidden rounded-3xl border border-line bg-white shadow-2xl">
+    <div class="flex items-center justify-between bg-deep px-5 py-4 text-white">
+      <div class="flex items-center gap-3"><span class="flex h-9 w-9 items-center justify-center rounded-full bg-grad text-xs font-black">CK</span><div><p class="text-sm font-bold">CK Business Agency</p><p class="text-[11px] text-white/60">Typically replies within one business day</p></div></div>
+      <button type="button" id="chatClose" aria-label="Close chat" class="text-white/70 hover:text-white"><svg class="h-4 w-4"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="space-y-3 bg-shell/30 p-5 text-sm">
+      <div class="w-fit max-w-[90%] rounded-2xl rounded-bl-sm bg-white px-4 py-2.5 shadow-sm">Hi there 👋 How can we help today?</div>
+      <div class="flex flex-col gap-2 pt-1">
+        <button type="button" data-open-intake data-tally-open="wzNBZa" data-tally-layout="modal" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="rounded-full border border-line bg-white px-4 py-2 text-left font-bold hover:border-hyper">Start a project</button>
+        <a href="#contact" data-subject="Demo request — JOURNEY™ AI Agent + Dashboard" class="rounded-full border border-line bg-white px-4 py-2 font-bold hover:border-hyper">Request a JOURNEY™ demo</a>
+        <a href="#services" class="rounded-full border border-line bg-white px-4 py-2 font-bold hover:border-hyper">Explore services</a>
+        <a href="#contact" class="rounded-full border border-line bg-white px-4 py-2 font-bold hover:border-hyper">Send us a message</a>
+      </div>
+    </div>
+  </div>
+  <button type="button" id="chatBtn" class="flex items-center gap-3 rounded-full border border-line bg-white py-2 pl-2 pr-5 shadow-xl transition hover:-translate-y-0.5">
+    <span class="flex h-10 w-10 items-center justify-center rounded-full bg-sky/25 text-sm font-black text-teal">CK</span>
+    <span class="text-sm font-bold">Chat with us</span>
+  </button>
+</div>
+
+<!-- ============ INTAKE MODAL (Tally) ============ -->
+<div id="intake" class="modal fixed inset-0 z-50 items-center justify-center bg-deep/70 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="intakeTitle">
+  <div class="relative w-full max-w-xl rounded-3xl bg-white p-8 shadow-2xl sm:p-10">
+    <button type="button" data-close-intake class="absolute right-5 top-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-line" aria-label="Close"><svg class="h-4 w-4"><use href="#i-x"/></svg></button>
+    <p class="text-3xl">👋</p>
+    <h2 id="intakeTitle" class="mt-3 text-2xl font-black">Start a project with CK</h2>
+    <p class="mt-2 text-muted">Share a few details through our project intake form and we'll be in touch to scope next steps.</p>
+    <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+      <a href="https://tally.so/r/wzNBZa" target="_blank" rel="noopener" class="inline-flex flex-1 items-center justify-center gap-2 rounded-full bg-grad px-6 py-4 text-sm font-black uppercase tracking-wider text-white glow">Open intake form <svg class="h-4 w-4"><use href="#i-arrow"/></svg></a>
+      <a href="#contact" data-close-intake class="inline-flex flex-1 items-center justify-center rounded-full border border-line px-6 py-4 text-sm font-black uppercase tracking-wider">Send a message</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  function icon(id, cls) { return '<svg class="' + cls + '"><use href="#' + id + '"/></svg>'; }
+  function $(s) { return document.querySelector(s); }
+  function $$(s) { return Array.prototype.slice.call(document.querySelectorAll(s)); }
+
+  var pillars = [
+    { icon: "i-trending", title: "Business Strategy & Growth",
+      sub: "Build the strategy, relationships, and opportunities that move the business forward.",
+      body: "We start with your goals, market, and operations to understand what growth actually requires. Through research, competitive insight, and opportunity mapping, we build a practical roadmap covering positioning, business development, partnerships, and referral channels — then help refine the internal processes needed to support it." },
+    { icon: "i-megaphone", title: "Marketing & Branding",
+      sub: "Create meaningful engagement that moves audiences from awareness to action.",
+      body: "We design marketing that connects strategy to measurable action. From campaign planning and lifecycle programs to content, email, digital, social, SEO/AEO, and sales enablement, we build integrated programs that grow visibility, nurture leads, and support revenue — with messaging and collateral aligned across every touchpoint." },
+    { icon: "i-calendar", title: "Event & Supplier Project Management",
+      sub: "Move initiatives from planning to execution with coordinated project, vendor, procurement, and event support.",
+      body: "We manage the moving parts so initiatives launch on time and on budget. From project plans and timelines to vendor sourcing, procurement, branded materials, production, and on-site event operations, we coordinate suppliers and logistics end to end so your team can stay focused on outcomes." },
+    { icon: "i-cpu", title: "Digital & Technology Solutions",
+      sub: "Use technology to improve experiences, workflows, engagement, and business operations.",
+      body: "We use technology to remove friction from how you operate and how customers experience your brand. That includes websites, CRM implementation, custom software and SaaS prototyping, AI and automation, marketing technology, workflow tooling, and systems integration — scoped to what your team can realistically adopt and maintain." }
+  ];
+  $("#homePillars").innerHTML = pillars.map(function (p) {
+    return '<div class="card flex flex-col items-center p-8 text-center transition hover:-translate-y-1 glow-soft">' +
+      '<span class="flex h-12 w-12 items-center justify-center rounded-full bg-grad text-white glow">' + icon(p.icon, "h-5 w-5") + '</span>' +
+      '<h3 class="mt-5 text-lg font-black">' + p.title + '</h3>' +
+      '<p class="mt-2 flex-1 text-sm leading-relaxed text-muted">' + p.sub + '</p>' +
+      '<button type="button" data-open-intake data-tally-open="wzNBZa" data-tally-layout="modal" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="mt-5 inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-hyper transition-all hover:gap-3">Discuss your needs ' + icon("i-arrow", "h-3.5 w-3.5") + '</button></div>';
+  }).join("");
+  $("#servicePillars").innerHTML = pillars.map(function (p, i) {
+    return '<div class="card flex flex-col items-center p-9 text-center">' +
+      '<span class="text-xs font-bold tracking-[0.3em] text-hyper">0' + (i + 1) + '</span>' +
+      '<h2 class="mt-3 text-2xl font-black">' + p.title + '</h2>' +
+      '<p class="mt-3 text-lg leading-relaxed text-ink/80">' + p.sub + '</p>' +
+      '<p class="mt-4 flex-1 text-sm leading-relaxed text-muted">' + p.body + '</p>' +
+      '<button type="button" data-open-intake data-tally-open="wzNBZa" data-tally-layout="modal" data-tally-emoji-text="👋" data-tally-emoji-animation="wave" class="mt-7 inline-flex items-center gap-2 rounded-full bg-grad px-6 py-3 text-xs font-black uppercase tracking-wider text-white glow transition hover:-translate-y-0.5">Discuss your needs ' + icon("i-arrow", "h-3.5 w-3.5") + '</button></div>';
+  }).join("");
+
+  var approach = {
+    bold: [
+      ["01", "Analysis", "We dive deep into market trends, consumer behaviors, and competitor analysis to surface real opportunity."],
+      ["02", "Strategy", "Strategy is the key to success — vital in reaching your goals, objectives, and the audience that matters."],
+      ["03", "Tailored Campaigns", "One size does not fit all. We highlight value while crafting initiatives for your specific target audience."]],
+    light: [
+      ["01", "Analysis", "We believe in diving deep into market trends, consumer behaviors, and competitor analysis."],
+      ["02", "Strategy", "Strategy is the key to success and is vital in reaching your goals and objectives."],
+      ["03", "Tailored Campaigns", "One size does not fit all. We highlight value while crafting initiatives for your specific target audience."]]
+  };
+  $$("[data-approach]").forEach(function (el) {
+    var kind = el.getAttribute("data-approach");
+    el.innerHTML = approach[kind].map(function (a) {
+      var num = kind === "bold" ? '<div class="text-5xl font-black text-grad">' + a[0] + '</div>' : '<div class="text-5xl font-black text-sky/70">' + a[0] + '</div>';
+      return '<div class="card p-8 transition hover:-translate-y-1 glow-soft">' + num + '<h3 class="mt-4 text-xl font-black">' + a[1] + '</h3><p class="mt-3 text-sm leading-relaxed text-muted">' + a[2] + '</p></div>';
+    }).join("");
+  });
+
+  $("#whyList").innerHTML = ["Best-practice frameworks adapted to your brand", "Strategy grounded in real data and audience insight", "Creative that's both distinctive and on-message", "Transparent, partnership-driven engagements"].map(function (t) {
+    return '<li class="card flex items-center gap-4 px-5 py-5"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-grad text-white">' + icon("i-check", "h-3.5 w-3.5") + '</span><span>' + t + '</span></li>';
+  }).join("");
+
+  $$("[data-checks]").forEach(function (el) {
+    el.innerHTML = el.getAttribute("data-checks").split("|").map(function (t) {
+      return '<li class="flex items-center gap-2 text-muted"><span class="text-teal">' + icon("i-check", "h-4 w-4") + '</span>' + t + '</li>';
+    }).join("");
+  });
+
+  var features = {
+    insights: [
+      ["i-trending", "Deflection & Resolution Rates", "Prove how much support volume and operational cost the agent eliminates daily."],
+      ["i-users", "Lead Conversion Funnel", "Demonstrate the agent's direct financial impact on sales pipeline growth."],
+      ["i-smile", "Real-Time Sentiment Analysis", "Give your team an instant pulse on customer satisfaction and quality control."],
+      ["i-help", "Top Triggered FAQs", "Discover hidden customer pain points and sharpen your marketing messaging."]],
+    abg: [
+      ["i-target", "Priority Account Identification", "Surface the accounts that matter most using fit signals, intent data, and custom scoring — so sales and marketing focus on the right targets."],
+      ["i-userc", "Personalized Engagement", "Deliver tailored content, outreach, and experiences to each account based on role, stage, and behavior."],
+      ["i-route", "Sales & Marketing Alignment", "Unite teams around shared account plans, campaign signals, and handoff workflows that keep everyone moving in the same direction."],
+      ["i-trending", "Coordinated Growth Analytics", "Track account progression, pipeline influence, and campaign impact in one dashboard built for coordinated revenue growth."]]
+  };
+  $$("[data-features]").forEach(function (el) {
+    el.innerHTML = features[el.getAttribute("data-features")].map(function (f) {
+      return '<div class="card flex gap-4 p-7"><span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-grad text-white">' + icon(f[0], "h-5 w-5") + '</span><div><h3 class="font-black">' + f[1] + '</h3><p class="mt-1.5 text-sm leading-relaxed text-muted">' + f[2] + '</p></div></div>';
+    }).join("");
+  });
+
+  var tiers = [
+    { tag: "Lead gen", name: "Starter", who: "For small businesses", desc: "Capture leads on your site with a guided, template-driven web widget.", items: ["Web widget only", "Template conversation flows", "Basic lead capture & email alerts", "Standard branding controls"] },
+    { tag: "Support optimization", name: "Growth", who: "Most popular", desc: "Full AI + NLP, live agent handoff, and the integrations your team already uses.", items: ["Full AI / NLP responses", "Live agent handoff routing", "Basic CRM integrations", "Sentiment & deflection analytics"], featured: true },
+    { tag: "Custom workflow", name: "Enterprise", who: "Tailored to your stack", desc: "Custom API workflows, multi-channel deployment, and dedicated compliance.", items: ["Custom internal API setup", "Multi-channel deployment", "Dedicated compliance & security", "Priority support & SLA"] }
+  ];
+  $("#tiers").innerHTML = tiers.map(function (t) {
+    var f = t.featured;
+    return '<div class="relative flex flex-col rounded-3xl p-8 ' + (f ? 'bg-deep text-white shadow-2xl lg:-my-3' : 'card') + '">' +
+      (f ? '<span class="absolute -top-3 right-6 rounded-full bg-grad px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white">Most popular</span>' : '') +
+      '<p class="text-[11px] font-bold uppercase tracking-[0.2em] ' + (f ? 'text-turq' : 'text-hyper') + '">' + t.tag + '</p>' +
+      '<h3 class="mt-2 text-2xl font-black">' + t.name + '</h3>' +
+      '<p class="text-sm ' + (f ? 'text-white/60' : 'text-muted') + '">' + t.who + '</p>' +
+      '<p class="mt-4 text-sm leading-relaxed ' + (f ? 'text-white/80' : 'text-muted') + '">' + t.desc + '</p>' +
+      '<ul class="mt-6 flex-1 space-y-2.5 text-sm">' + t.items.map(function (i) { return '<li class="flex items-center gap-2"><span class="' + (f ? 'text-turq' : 'text-teal') + '">' + icon("i-check", "h-4 w-4") + '</span>' + i.replace("&", "&amp;") + '</li>'; }).join("") + '</ul>' +
+      '<a href="#contact" data-subject="Demo request — JOURNEY™ ' + t.name + ' tier" class="mt-8 inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-xs font-black uppercase tracking-wider ' + (f ? 'bg-grad text-white glow' : 'border border-line hover:border-hyper') + '">Request a demo ' + icon("i-arrow", "h-3.5 w-3.5") + '</a></div>';
+  }).join("");
+
+  var logos = [["via", "Via Renewables"], ["drip", "Drip Dental Studio"], ["law", "The Law Office of"], ["melanie", "The Melanie Dolls"], ["ilera", "Ilera Wellness Collective"], ["chcs", "CHCS Group"], ["belonging", "Belonging Institute"]];
+  var logoHTML = '<section class="border-t border-line bg-white"><div class="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8"><div class="text-center"><p class="eyebrow">Trusted by</p><h2 class="mt-3 text-3xl font-bold sm:text-4xl">Brands we\'ve partnered with</h2></div>' +
+    '<div class="mt-14 grid grid-cols-2 items-center justify-items-center gap-x-8 gap-y-12 sm:grid-cols-3 lg:grid-cols-4">' +
+    logos.map(function (l) { return '<img src="logos/' + l[0] + '.png" alt="' + l[1] + '" class="max-h-16 w-auto max-w-[170px] object-contain" />'; }).join("") +
+    '</div></div></section>';
+  $$("[data-logos]").forEach(function (el) { el.outerHTML = logoHTML; });
+
+  $("#yr").textContent = new Date().getFullYear();
+
+  // ---- routing ----
+  var views = ["home", "services", "solutions", "about", "contact"];
+  function route() {
+    var h = (location.hash || "#home").slice(1);
+    if (views.indexOf(h) === -1) h = "home";
+    views.forEach(function (v) { document.getElementById("view-" + v).classList.toggle("active", v === h); });
+    $$("[data-nav]").forEach(function (a) { a.classList.toggle("active", a.getAttribute("data-nav").split(" ").indexOf(h) > -1); });
+    $("#mobileNav").classList.add("hidden");
+    window.scrollTo(0, 0);
+  }
+  window.addEventListener("hashchange", route);
+  route();
+
+  $("#menuBtn").addEventListener("click", function () {
+    var n = $("#mobileNav"); n.classList.toggle("hidden");
+    this.setAttribute("aria-expanded", String(!n.classList.contains("hidden")));
+  });
+
+  // ---- clicks: intake modal, prefilled subjects, chat ----
+  var modal = $("#intake"), chat = $("#chatPanel");
+  document.addEventListener("click", function (e) {
+    var subj = e.target.closest("[data-subject]");
+    if (subj) { $("#subjectInput").value = subj.getAttribute("data-subject"); chat.classList.add("hidden"); }
+    if (e.target.closest("[data-open-intake]")) { chat.classList.add("hidden"); if (!window.Tally) modal.classList.add("open"); }
+    else if (e.target.closest("[data-close-intake]") || e.target === modal) modal.classList.remove("open");
+    if (e.target.closest("#chatPanel a")) chat.classList.add("hidden");
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") { modal.classList.remove("open"); chat.classList.add("hidden"); } });
+  $("#chatBtn").addEventListener("click", function () { chat.classList.toggle("hidden"); });
+  $("#chatClose").addEventListener("click", function () { chat.classList.add("hidden"); });
+
+  // ---- contact form ----
+  var form = $("#contactForm"), body = "";
+  form.addEventListener("submit", function (e) {
+    var d = new FormData(form);
+    var ok = d.get("name").trim() && /\S+@\S+\.\S+/.test(d.get("email")) && d.get("message").trim();
+    $("#formError").classList.toggle("hidden", !!ok);
+    if (!ok) { e.preventDefault(); return; }
+    // Live site: let the form post to FormSubmit. Inside an embedded preview (iframe), posting is blocked, so fall back to an email draft.
+    var embedded = false; try { embedded = window.self !== window.top; } catch (err) { embedded = true; }
+    if (!embedded) return;
+    e.preventDefault();
+    var subject = d.get("subject").trim() || "Project inquiry";
+    body = "Name: " + d.get("name") + "\nEmail: " + d.get("email") + "\n\n" + d.get("message");
+    $("#mailtoLink").href = "mailto:info@ckbusinessagency.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    $("#formResult").classList.remove("hidden");
+  });
+  $("#copyMsg").addEventListener("click", function (e) {
+    var b = e.currentTarget;
+    try { navigator.clipboard.writeText(body).then(function () { b.textContent = "Copied ✓"; }, function () { b.textContent = "Copy failed"; }); }
+    catch (err) { b.textContent = "Copy failed"; }
+  });
+})();
+</script>
+</body>
+</html>
